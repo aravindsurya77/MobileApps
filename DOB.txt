@@ -1,0 +1,144 @@
+import java.util.Scanner;
+
+public class dob {
+	
+		public void timecal(int y1,int m1,int d1,int y2,int m2,int d2){
+		
+		int Y,M,D,c,i=m1,j;
+		
+		Y= y2-y1-1;
+		
+		for(i=m1,c=0;i<=12;i++,c++);
+		
+		for(j=1;j!=m2;j++,c++);
+				
+		Y=y2-y1-1;
+		
+		M=c-1;
+		
+		D=30-d1+d2;
+		
+		if(D<0)
+			D=D*(-1);
+		
+		if(M==0)
+			Y=Y+1;
+					
+		if(D>=30)
+		{
+			M=(M+(D/30));
+			D=D%30;
+		}	
+		
+		if(M>=12)
+		{
+			Y=(Y+(M/12));
+			M=M%12;	
+		}
+		System.out.println("Date of Birth:"+m1+"/"+d1+"/"+y1);
+		System.out.println("Today's Date:"+m2+"/"+d2+"/"+y2);
+		
+		System.out.println("Age is "+Y+"Year(s)"+M+" Month(s)"+D+" Day(s)");
+	}
+		
+	public static void main(String[] args)
+	{
+		dob dob1=new dob();
+		
+		System.out.println("Enter Date of Birth");
+		System.out.println("Year: ");
+		Scanner s1 =new Scanner(System.in); 
+		int y1 = s1.nextInt();
+		
+		System.out.println("Month: ");
+		Scanner s2 =new Scanner(System.in); 
+		int m1 = s2.nextInt();
+			if(m1>12 || m1<1)
+			{
+				System.out.println("Invalid Input. Try again");
+				System.exit(0);
+			}	
+				
+		System.out.println("Date: ");
+		Scanner s3 =new Scanner(System.in); 
+		int d1 = s3.nextInt();
+		if(y1%4==0 && m1==2)
+			if(d1<1 || d1>29)
+		{
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}
+				
+		
+		if(y1%4!=0 && m1==2)
+			if (d1<1 || d1>28)
+		{			
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}	
+			
+		if(m1==1 || m1==3 || m1==5 || m1==7 || m1==8 || m1==10 || m1==12)
+			if(d1>31 || d1<1)
+		{
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}
+			
+		if(m1==4 || m1==6 || m1==9 || m1==11)
+			if(d1>30 || d1<1)
+		{
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}
+		
+		System.out.println("Enter Today's date");
+		System.out.println("Year: ");
+		Scanner s4 =new Scanner(System.in); 
+		int y2 = s4.nextInt();
+		
+		System.out.println("Month: ");
+		Scanner s5 =new Scanner(System.in); 
+		int m2 = s5.nextInt();
+		
+			if(m2>12 || m2<1)
+			{
+				System.out.println("Invalid Input. Try again");
+				System.exit(0);
+			}	
+		System.out.println("Date: ");
+		Scanner s6 =new Scanner(System.in); 
+		int d2 = s6.nextInt();
+		if(y2%4==0 && m2==2)
+			if(d2<1 || d2>29)
+		{
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}
+				
+		
+		if(y2%4!=0 && m2==2)
+			 if(d2<1 || d2>28)
+		{			
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}	
+			
+		if(m2==1 || m2==3 || m2==5 || m2==7 || m2==8 || m2==10 || m2==12)
+			if(d2>31 || d2<1)
+		{
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}
+			
+		if(m2==4 || m2==6 || m2==9 || m2==11)
+			 if(d2>30 || d2<1)
+		{
+			System.out.println("Invalid Input. Try again");
+			System.exit(0);
+		}
+		
+		dob1.timecal(y1,m1,d1,y2,m2,d2);
+		
+	}
+
+}
